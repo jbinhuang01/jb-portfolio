@@ -1,166 +1,143 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
+
+type Project = {
+  category: string;
+  label: string;
+  title: string;
+  description: string;
+  metrics: Array<[string, string]>;
+  image: string;
+};
+
+const projects: Project[] = [
+  {
+    category: "ai",
+    label: "Applied AI / NLP evaluation",
+    title: "LLM Response Quality Classification",
+    description:
+      "A reproducible four-label classification workflow for evaluating accuracy, completeness, reasoning quality, and hallucination risk.",
+    metrics: [["150+", "reviewed outputs"], ["1.00", "macro F1 demo"], ["2", "baseline families"]],
+    image: "/assets/llm-quality.png",
+  },
+  {
+    category: "data",
+    label: "Data engineering / analytics",
+    title: "Three-Layer Data Lake Pipeline",
+    description:
+      "Configuration-driven ingestion with raw snapshots, validation, rejected-record handling, curated customer metrics, and SQL publishing.",
+    metrics: [["3", "data layers"], ["98.4%", "valid demo rows"], ["3", "reason-coded rejects"]],
+    image: "/assets/data-lake.png",
+  },
+  {
+    category: "modeling",
+    label: "Statistical modeling / ongoing",
+    title: "S&P 500 Performance Modeling",
+    description:
+      "A time-aware company panel workflow combining financial feature engineering, tree-based prediction, PCA, peer segmentation, and Tableau-ready exports.",
+    metrics: [["30+", "demo companies"], ["17", "fiscal years"], ["4", "peer segments"]],
+    image: "/assets/sp500-segments.png",
+  },
+];
 
 export default function Home() {
+  const [filter, setFilter] = useState("all");
+  const visibleProjects = projects.filter(
+    (project) => filter === "all" || project.category === filter,
+  );
+
   return (
-    <main className="max-w-5xl mx-auto px-6 py-24">
+    <>
+      <header className="site-header">
+        <a className="wordmark" href="#top">JH</a>
+        <nav aria-label="Primary navigation">
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+        </nav>
+      </header>
 
-      {/* Hero Section */}
-      <section className="mb-24">
-        <h1 className="text-5xl font-semibold tracking-tight mb-6">
-          Jiangbin Huang
-        </h1>
-
-        <p className="text-xl text-gray-600 max-w-2xl">
-          Data Engineer & Data Scientist building scalable data systems,
-          real-time ML pipelines, and quantitative risk models.
-        </p>
-
-        <Link
-          href="/projects"
-          className="inline-block mt-8 border border-black px-6 py-3 rounded-lg hover:bg-black hover:text-white transition"
-        >
-          View Projects
-        </Link>
-      </section>
-
-      {/* Expertise */}
-      <section className="mb-24">
-        <h2 className="text-3xl font-semibold mb-10">
-          Expertise
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-12 text-gray-700">
-
-          {/* Data Engineering */}
-          <div>
-            <h3 className="text-lg font-medium mb-4">
-              Data Engineering
-            </h3>
-
-            <ul className="space-y-2 text-sm">
-              <li>End-to-end ETL pipeline design</li>
-              <li>Real-time streaming systems (Kafka, Spark)</li>
-              <li>Schema design, partitioning & indexing</li>
-            </ul>
-
-            <p className="text-xs text-gray-500 mt-4">
-              Kafka · Spark · Delta Lake · SQL · AWS
-            </p>
+      <main id="top">
+        <section className="intro">
+          <p className="eyebrow">Seattle, WA · U.S. Citizen</p>
+          <h1>Jiangbin Huang</h1>
+          <p className="intro-role">Data Scientist · Applied AI · Analytics Engineering</p>
+          <p className="intro-copy">
+            I build validated data pipelines, statistical and machine learning
+            workflows, and LLM evaluation systems that turn messy inputs into
+            reproducible decisions.
+          </p>
+          <div className="intro-actions">
+            <a className="button primary" href="#projects">View projects</a>
+            <a className="button secondary" href="mailto:jbinhuang01@gmail.com">Email</a>
+            <a className="text-link" href="https://github.com/jbinhuang01">GitHub</a>
+            <a className="text-link" href="https://www.linkedin.com/in/jb-huang-9511141ba">LinkedIn</a>
           </div>
+          <dl className="evidence-strip">
+            <div><dt>1.2M+</dt><dd>sensor records processed monthly</dd></div>
+            <div><dt>40%</dt><dd>SQL query performance improvement</dd></div>
+            <div><dt>200+</dt><dd>manual reporting hours saved annually</dd></div>
+            <div><dt>150+</dt><dd>LLM responses evaluated</dd></div>
+          </dl>
+        </section>
 
-          {/* Machine Learning */}
-          <div>
-            <h3 className="text-lg font-medium mb-4">
-              Machine Learning
-            </h3>
-
-            <ul className="space-y-2 text-sm">
-              <li>Feature engineering & model selection</li>
-              <li>LSTM, XGBoost, ARIMA</li>
-              <li>Cross-validation & performance evaluation</li>
-            </ul>
-
-            <p className="text-xs text-gray-500 mt-4">
-              PyTorch · scikit-learn · TensorFlow
-            </p>
+        <section className="projects-section" id="projects">
+          <div className="section-heading">
+            <div><p className="eyebrow">Selected work</p><h2>Production-oriented projects</h2></div>
+            <div className="filters" role="group" aria-label="Filter projects">
+              {[["all", "All"], ["ai", "Applied AI"], ["data", "Data Engineering"], ["modeling", "Modeling"]].map(([value, label]) => (
+                <button className={`filter ${filter === value ? "active" : ""}`} key={value} onClick={() => setFilter(value)} type="button">{label}</button>
+              ))}
+            </div>
           </div>
-
-          {/* Statistical Inference */}
-          <div>
-            <h3 className="text-lg font-medium mb-4">
-              Statistical Inference
-            </h3>
-
-            <ul className="space-y-2 text-sm">
-              <li>A/B testing & experiment design</li>
-              <li>Hypothesis testing & confidence intervals</li>
-              <li>Regression & time-series analysis</li>
-            </ul>
-
-            <p className="text-xs text-gray-500 mt-4">
-              Probability · Statistical Modeling
-            </p>
+          <div className="project-grid">
+            {visibleProjects.map((project) => (
+              <article className="project-card" key={project.title}>
+                <img src={project.image} alt={`${project.title} project visualization`} />
+                <div className="project-content">
+                  <p className="project-meta">{project.label}</p>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <dl className="project-results">
+                    {project.metrics.map(([value, label]) => <div key={label}><dt>{value}</dt><dd>{label}</dd></div>)}
+                  </dl>
+                  <a className="project-link" href="https://github.com/jbinhuang01/jb-portfolio">View technical work on GitHub</a>
+                </div>
+              </article>
+            ))}
           </div>
+        </section>
 
-        </div>
-      </section>
-      {/* Education */}
-      <section className="mb-24">
-        <h2 className="text-3xl font-semibold mb-8">Education</h2>
-
-        <div className="space-y-6 text-gray-700">
-
-          <div>
-            <h3 className="text-xl font-medium">
-              University of Washington
-            </h3>
-            <p>Master of Science in Applied Mathematics (2023–2024)</p>
-            <p className="text-gray-500">
-              Scientific Computing, Database Management,
-              Machine Learning for Big Data
-            </p>
+        <section className="experience-section" id="experience">
+          <div className="section-heading"><div><p className="eyebrow">Experience</p><h2>From data contracts to model review</h2></div></div>
+          <div className="experience-list">
+            <article><div><h3>Co-Founder &amp; Data Scientist</h3><p>Early-Stage Data &amp; AI Startup</p></div><p>Built Python and SQL workflows, a three-layer data lake pattern, model-selection pipelines, RAG evaluation, and repeatable technical handoff assets.</p><time>2025 — Present</time></article>
+            <article><div><h3>Data / AI Researcher</h3><p>Feelie</p></div><p>Standardized 500K+ conversation records and connected DistilBERT emotion classification, LLM response generation, and rubric-based output review.</p><time>2024 — 2025</time></article>
+            <article><div><h3>Data Analyst Intern</h3><p>UW Engineering Services</p></div><p>Built validated ETL and SQL reporting workflows, improved query performance by 40%, and automated 200+ hours of annual reporting work.</p><time>2022 — 2024</time></article>
           </div>
+        </section>
 
-          <div>
-            <h3 className="text-xl font-medium">
-              University of Washington
-            </h3>
-            <p>Bachelor of Science in Applied Mathematics (2020–2023)</p>
-            <p className="text-gray-500">
-              Data Structures, Algorithms, Statistical Methods,
-              Computational Mathematics
-            </p>
+        <section className="capabilities-section" id="skills">
+          <div className="section-heading"><div><p className="eyebrow">Capabilities</p><h2>Methods backed by working pipelines</h2></div></div>
+          <div className="capability-grid">
+            <article><h3>Statistics &amp; Machine Learning</h3><p>Model selection, feature engineering, cross-validation, hypothesis testing, regression, classification, clustering, and time-series forecasting.</p><p className="technology-line">XGBoost · Random Forest · Logistic Regression · PCA · ARIMA · LSTM</p></article>
+            <article><h3>Applied AI &amp; LLM Systems</h3><p>RAG workflows, response-quality classification, retrieval evaluation, prompt testing, embeddings, hallucination review, and model evaluation.</p><p className="technology-line">PyTorch · scikit-learn · TensorFlow · LangChain · OpenAI API</p></article>
+            <article><h3>Data Engineering &amp; Analytics</h3><p>ETL development, data validation, layered data lakes, schema design, SQL optimization, analytics datasets, and reporting automation.</p><p className="technology-line">Python · SQL · pandas · AWS · Tableau · Power BI</p></article>
           </div>
+        </section>
 
-        </div>
-      </section>
-      {/* Selected Coursework */}
-    <section className="mb-24">
-      <h2 className="text-3xl font-semibold mb-10">
-        Selected Coursework
-      </h2>
+        <section className="education-section" id="education">
+          <div className="section-heading"><div><p className="eyebrow">Education</p><h2>Applied mathematics foundation</h2></div></div>
+          <div className="education-list">
+            <article><div><h3>Master of Science, Applied Mathematics</h3><p>University of Washington · Seattle, WA</p></div><p>Scientific computing, machine learning for large-scale data, database systems, probability, and statistical modeling.</p><time>Dec 2024 · GPA 3.5</time></article>
+            <article><div><h3>Bachelor of Science, Applied Mathematics</h3><p>University of Washington · Seattle, WA</p></div><p>Data structures, algorithms, numerical analysis, statistical methods, and computational mathematics.</p><time>Jun 2023 · GPA 3.7</time></article>
+          </div>
+        </section>
+      </main>
 
-      <div className="grid md:grid-cols-3 gap-10 text-gray-700">
-
-        <div>
-          <h3 className="font-medium mb-4">
-            Applied Mathematics
-          </h3>
-          <ul className="space-y-2 text-sm">
-            <li>Probability & Random Processes</li>
-            <li>Scientific Computing</li>
-            <li>Partial Differential Equations</li>
-            <li>Linear Algebra & Numerical Analysis</li>
-            <li>Dynamical Systems & Chaos</li>
-            <li>Applied Complex Analysis</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="font-medium mb-4">
-            Computer Science
-          </h3>
-          <ul className="space-y-2 text-sm">
-            <li>Data Structures & Algorithms</li>
-            <li>Database Systems</li>
-            <li>Algorithms & Complexity</li>
-            <li>Scientific Computing (Programming)</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="font-medium mb-4">
-            Statistics & Modeling
-          </h3>
-          <ul className="space-y-2 text-sm">
-            <li>Statistical Methods</li>
-            <li>Discrete Mathematical Modeling</li>
-            <li>Time-Series Modeling</li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
-    </main>
+      <footer id="contact"><div><p className="eyebrow">Contact</p><h2>Building reliable data products and applied AI workflows.</h2></div><div className="footer-links"><a href="mailto:jbinhuang01@gmail.com">jbinhuang01@gmail.com</a><a href="https://www.linkedin.com/in/jb-huang-9511141ba">LinkedIn</a><a href="https://github.com/jbinhuang01">GitHub</a></div></footer>
+    </>
   );
 }
