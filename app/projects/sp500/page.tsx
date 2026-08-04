@@ -65,9 +65,6 @@ const researchStyles = String.raw`
 .research-process li{display:grid;grid-template-columns:2.5rem 1fr;gap:.8rem;border-bottom:1px solid #cbd4dd;padding:1.2rem 0}
 .process-index{display:grid;width:2.2rem;height:2.2rem;place-items:center;border-radius:50%;background:#234d6f;color:#fff;font-size:.8rem;font-weight:850}
 .research-process p{margin:0;color:#5c6672;font-size:.86rem;line-height:1.5}
-.mermaid-source{margin-top:1.5rem;border:1px solid #cbd4dd;border-radius:6px;padding:.8rem 1rem;color:#234d6f}
-.mermaid-source summary{cursor:pointer;font-weight:750}
-.mermaid-source pre{overflow:auto;margin:1rem 0 0;color:#5c6672;font: .78rem/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap}
 .research-figures{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:2rem}
 .research-figure{overflow:hidden;margin:0;border:1px solid #cbd4dd;border-radius:6px;background:#fff}
 .research-figure img{display:block;width:100%;aspect-ratio:1.55;object-fit:cover;border-bottom:1px solid #cbd4dd}
@@ -107,18 +104,6 @@ export default function SP500ProjectPage() {
         <ol className="research-process">
           {processSteps.map(([letter, title, description], index) => <li key={letter}><span className="process-index">{letter}</span><div><h3>{index + 1}. {title}</h3><p>{description}</p></div></li>)}
         </ol>
-        <details className="mermaid-source"><summary>Show Mermaid workflow source</summary><pre>{`flowchart TD
-    A["静态价格数据"] --> B["数据清洗与异常检测"]
-    B --> C["描述性分析与可视化"]
-    C --> D["风险/收益特征与股票分组"]
-    D --> E["滚动聚类与市场 regime"]
-    E --> F["预测模型与策略回测"]
-    F --> G["Point-in-time 与历史成分"]
-    G --> H["Placebo / Bootstrap / Reality Check"]
-    H --> I["锁定 OOS Holdout"]
-    I --> J["高级模型 Gradient Boosting"]
-    J --> K["当前：公平比较新增 factor"]
-    K --> L["最终报告与结论"]`}</pre></details>
       </section>
 
       <section className="research-section">
