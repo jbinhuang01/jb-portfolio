@@ -67,7 +67,7 @@ const researchStyles = String.raw`
 .research-process p{margin:0;color:#5c6672;font-size:.86rem;line-height:1.5}
 .research-figures{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:2rem}
 .research-figure{overflow:hidden;margin:0;border:1px solid #cbd4dd;border-radius:6px;background:#fff}
-.research-figure img{display:block;width:100%;aspect-ratio:1.55;object-fit:cover;border-bottom:1px solid #cbd4dd}
+.research-figure img{display:block;width:100%;border-bottom:1px solid #cbd4dd}
 .research-figure figcaption{padding:.9rem 1rem;color:#5c6672;font-size:.78rem;line-height:1.5}
 .research-table-wrap{overflow-x:auto;margin:1.5rem 0}
 .research-table{width:100%;min-width:650px;border-collapse:collapse;border-top:1px solid #18212a;font-size:.82rem}
