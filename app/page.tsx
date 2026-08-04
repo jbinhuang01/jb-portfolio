@@ -9,6 +9,7 @@ type Project = {
   description: string;
   metrics: Array<[string, string]>;
   image: string;
+  link: string;
 };
 
 const projects: Project[] = [
@@ -20,6 +21,7 @@ const projects: Project[] = [
       "A reproducible four-label classification workflow for evaluating accuracy, completeness, reasoning quality, and hallucination risk.",
     metrics: [["150+", "reviewed outputs"], ["1.00", "macro F1 demo"], ["2", "baseline families"]],
     image: "/assets/llm-quality.png",
+    link: "https://github.com/jbinhuang01/jb-portfolio/tree/portfolio-v2",
   },
   {
     category: "data",
@@ -29,15 +31,17 @@ const projects: Project[] = [
       "Configuration-driven ingestion with raw snapshots, validation, rejected-record handling, curated customer metrics, and SQL publishing.",
     metrics: [["3", "data layers"], ["98.4%", "valid demo rows"], ["3", "reason-coded rejects"]],
     image: "/assets/data-lake.png",
+    link: "https://github.com/jbinhuang01/jb-portfolio/tree/portfolio-v2",
   },
   {
     category: "modeling",
-    label: "Statistical modeling / ongoing",
-    title: "S&P 500 Performance Modeling",
+    label: "Quantitative research / point-in-time validation",
+    title: "Point-in-Time S&P 500 Return Modeling",
     description:
-      "A time-aware company panel workflow combining financial feature engineering, tree-based prediction, PCA, peer segmentation, and Tableau-ready exports.",
-    metrics: [["30+", "demo companies"], ["17", "fiscal years"], ["4", "peer segments"]],
+      "A leakage-aware equity panel using historical index membership, liquidity controls, walk-forward model comparison, factor regimes, placebo tests, moving-block bootstrap, Reality Check, and locked holdout evaluation. The final analysis reports an exploratory signal rather than claiming persistent alpha.",
+    metrics: [["704", "historical members"], ["8", "locked OOS quarters"], ["0.04", "locked OOS R²"]],
     image: "/assets/sp500-segments.png",
+    link: "https://github.com/jbinhuang01/sp500-modeling",
   },
 ];
 
@@ -87,7 +91,7 @@ export default function Home() {
           <div className="section-heading">
             <div><p className="eyebrow">Selected work</p><h2>Production-oriented projects</h2></div>
             <div className="filters" role="group" aria-label="Filter projects">
-              {[["all", "All"], ["ai", "Applied AI"], ["data", "Data Engineering"], ["modeling", "Modeling"]].map(([value, label]) => (
+              {[['all', 'All'], ['ai', 'Applied AI'], ['data', 'Data Engineering'], ['modeling', 'Modeling']].map(([value, label]) => (
                 <button className={`filter ${filter === value ? "active" : ""}`} key={value} onClick={() => setFilter(value)} type="button">{label}</button>
               ))}
             </div>
@@ -103,7 +107,7 @@ export default function Home() {
                   <dl className="project-results">
                     {project.metrics.map(([value, label]) => <div key={label}><dt>{value}</dt><dd>{label}</dd></div>)}
                   </dl>
-                  <a className="project-link" href="https://github.com/jbinhuang01/jb-portfolio">View technical work on GitHub</a>
+                  <a className="project-link" href={project.link}>View technical work on GitHub</a>
                 </div>
               </article>
             ))}

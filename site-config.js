@@ -4,6 +4,6 @@ window.PORTFOLIO_CONFIG = {
   location: "Seattle, WA",
   email: "jbinhuang01@gmail.com",
   linkedin: "https://www.linkedin.com/in/jb-huang-9511141ba",
-  githubProfile: "https://github.com/YOUR_GITHUB_USERNAME",
-  repository: "https://github.com/YOUR_GITHUB_USERNAME/data-science-portfolio"
+  githubProfile: "https://github.com/jbinhuang01",
+  repository: "https://github.com/jbinhuang01/jb-portfolio"
 };
