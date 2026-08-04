@@ -41,7 +41,7 @@ const projects: Project[] = [
       "A leakage-aware equity panel using historical index membership, liquidity controls, walk-forward model comparison, factor regimes, placebo tests, moving-block bootstrap, Reality Check, and locked holdout evaluation. The final analysis reports an exploratory signal rather than claiming persistent alpha.",
     metrics: [["704", "historical members"], ["8", "locked OOS quarters"], ["0.04", "locked OOS R²"]],
     image: "/assets/sp500-segments.png",
-    link: "https://github.com/jbinhuang01/sp500-modeling",
+    link: "/projects/sp500",
   },
 ];
 
@@ -120,6 +120,7 @@ export default function Home() {
             <article><div><h3>Co-Founder &amp; Data Scientist</h3><p>Early-Stage Data &amp; AI Startup</p></div><p>Built Python and SQL workflows, a three-layer data lake pattern, model-selection pipelines, RAG evaluation, and repeatable technical handoff assets.</p><time>2025 — Present</time></article>
             <article><div><h3>Data / AI Researcher</h3><p>Feelie</p></div><p>Standardized 500K+ conversation records and connected DistilBERT emotion classification, LLM response generation, and rubric-based output review.</p><time>2024 — 2025</time></article>
             <article><div><h3>Data Analyst Intern</h3><p>UW Engineering Services</p></div><p>Built validated ETL and SQL reporting workflows, improved query performance by 40%, and automated 200+ hours of annual reporting work.</p><time>2022 — 2024</time></article>
+            <article><div><h3>Research Assistant</h3><p>UW Department of Civil Engineering</p></div><p>Processed 1.2M+ sensor records per month with timestamp alignment, missing-value treatment, noise filtering, and feature engineering; built congestion-monitoring datasets, applied clustering to identify recurring traffic patterns and high-risk locations, and evaluated ARIMA and LSTM forecasting approaches for short-term traffic prediction.</p><time>2021 — 2023</time></article>
           </div>
         </section>
 
