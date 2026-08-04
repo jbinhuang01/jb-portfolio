@@ -41,7 +41,7 @@ const projects: Project[] = [
       "A leakage-aware equity panel using historical index membership, liquidity controls, walk-forward model comparison, factor regimes, placebo tests, moving-block bootstrap, Reality Check, and locked holdout evaluation. The final analysis reports an exploratory signal rather than claiming persistent alpha.",
     metrics: [["704", "historical members"], ["8", "locked OOS quarters"], ["0.04", "locked OOS R²"]],
     image: "/assets/sp500-segments.png",
-    link: "https://github.com/jbinhuang01/sp500-modeling",
+    link: "/projects/sp500",
   },
 ];
 
