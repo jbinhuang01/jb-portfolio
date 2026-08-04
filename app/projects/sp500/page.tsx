@@ -130,6 +130,7 @@ export default function SP500ProjectPage() {
           <Figure src="/assets/sp500/rolling-cluster-heatmap.png" alt="Rolling 60-month peer group assignments" caption="Rolling clustering shows that peer-group membership is not static across market periods." />
           <Figure src="/assets/sp500/advanced-model-comparison.png" alt="Advanced model comparison development and holdout" caption="Model selection is separated from the locked holdout; the holdout is evaluated only after the specification is frozen." />
           <Figure src="/assets/sp500/advanced-statistical-validation.png" alt="Advanced statistical validation results" caption="Placebo, block bootstrap, Reality Check, and cost/top-N sensitivity provide a more conservative interpretation of the observed result." />
+          <Figure src="/assets/sp500/confirmatory-holdout.png" alt="Locked out-of-sample confirmatory holdout" caption="The final confirmatory holdout keeps the selected specification fixed and reports performance on eight previously locked quarterly periods." />
           <Figure src="/assets/sp500/factor-expansion.png" alt="Factor expansion development and holdout" caption="The factor expansion is an apples-to-apples test: additional price factors did not improve the frozen baseline on the holdout." />
         </div>
       </section>
