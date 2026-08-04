@@ -107,7 +107,9 @@ export default function Home() {
                   <dl className="project-results">
                     {project.metrics.map(([value, label]) => <div key={label}><dt>{value}</dt><dd>{label}</dd></div>)}
                   </dl>
-                  <a className="project-link" href={project.link}>View technical work on GitHub</a>
+                  <a className="project-link" href={project.link}>
+                    {project.category === "modeling" ? "View full research walkthrough" : "View technical work on GitHub"}
+                  </a>
                 </div>
               </article>
             ))}
