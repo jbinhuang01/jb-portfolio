@@ -88,14 +88,14 @@ export default function SP500ProjectPage() {
       <header className="research-hero">
         <p className="eyebrow">Quantitative research / point-in-time validation</p>
         <h1>Point-in-Time S&amp;P 500 Return Modeling</h1>
-        <p className="research-lede">A reproducible research pipeline for testing cross-sectional return ranking under historical membership, realistic costs, strict time ordering, and multiple-testing-aware inference.</p>
+        <p className="research-lede">I built a point-in-time stock panel to test whether a small set of price and risk features could rank stocks out of sample. The page shows both the promising part of the result and the checks that made the conclusion weaker.</p>
         <div className="research-links"><a className="button primary" href="https://github.com/jbinhuang01/sp500-modeling">Open research repository</a><span>Python · pandas · scikit-learn · time-series validation</span></div>
       </header>
 
       <section className="research-section">
         <p className="eyebrow">Research question</p>
-        <h2>Can a leakage-aware company panel produce useful ranking information out of sample?</h2>
-        <p>The study starts with static historical prices, builds risk/return features, and progressively tightens the design. The final specification uses historical S&amp;P 500 membership, a 12-month feature window, non-overlapping quarterly targets, a locked eight-quarter holdout, five-stock portfolios, and a 0.5% transaction cost per turnover.</p>
+        <h2>Can a stock-ranking model beat a simple baseline after costs when membership and dates are frozen?</h2>
+        <p>I started with historical prices, built risk and return features, and kept tightening the evaluation design. The final version uses historical S&amp;P 500 membership, a 12-month feature window, non-overlapping quarterly targets, an eight-quarter holdout, five-stock portfolios, and a 0.5% transaction cost per turnover.</p>
       </section>
 
       <section className="research-section">
@@ -108,7 +108,7 @@ export default function SP500ProjectPage() {
 
       <section className="research-section">
         <p className="eyebrow">Visual evidence</p>
-        <h2>What the panel and strategy look like</h2>
+        <h2>What the data and selected portfolios look like</h2>
         <div className="research-figures">
           <Figure src="/assets/sp500/normalized-price-trends.png" alt="Normalized S&P 500 company price trends" caption="Normalized company price paths reveal strong heterogeneity and structural breaks that motivate robust cleaning and time-aware evaluation." />
           <Figure src="/assets/sp500/peer-segments.png" alt="S&P 500 company peer segments" caption="PCA-based peer segments summarize differences in historical risk, return, drawdown, and persistence features." />
@@ -129,7 +129,7 @@ export default function SP500ProjectPage() {
 
       <section className="research-section">
         <p className="eyebrow">Robustness and inference</p>
-        <h2>The important result is the qualification</h2>
+        <h2>The result changes after stricter checks</h2>
         <div className="research-callout"><strong>Exploratory alpha p = 0.0395.</strong> Before dependence and model-selection corrections, the Gradient Boosting alpha looks significant. After moving-block bootstrap and four-model Reality Check, the p-values are 0.1237 and 0.1361. With only eight quarterly observations, the evidence is promising but not confirmatory proof of persistent alpha.</div>
         <ResultsTable headers={["Test / quantity", "Value", "Interpretation"]} rows={[["Raw alpha p-value", "0.0395", "Nominal significance before corrections"], ["Random Top-5 placebo p-value", "0.0002", "Observed portfolio beats random selection"], ["Moving-block bootstrap p-value", "0.1237", "Not significant after dependence-aware resampling"], ["Reality Check p-value", "0.1361", "Not significant after four-model selection"], ["Bootstrap 95% interval", "[-1.26%, 21.83%]", "Wide interval due to only eight quarters"]]} />
       </section>
@@ -150,8 +150,8 @@ export default function SP500ProjectPage() {
 
       <section className="research-section research-final">
         <p className="eyebrow">Final takeaway</p>
-        <h2>Research-grade evidence requires disciplined restraint</h2>
-        <p>The project demonstrates a complete applied-mathematics workflow: data auditing, feature construction, clustering, supervised learning, portfolio simulation, point-in-time design, resampling inference, and confirmatory holdout analysis. The strongest conclusion is not that the strategy is production-ready; it is that the research process makes the strength and uncertainty of the signal explicit.</p>
+        <h2>The useful conclusion is also a limitation</h2>
+        <p>The model looks interesting in the first comparison, but the locked holdout and multiple-testing checks make a strong alpha claim hard to defend. That is the conclusion I would carry forward: the pipeline is reusable, while this particular signal still needs more data before it deserves to be called persistent.</p>
         <a className="button primary" href="https://github.com/jbinhuang01/sp500-modeling">Read the code and reports on GitHub</a>
       </section>
     </main>
