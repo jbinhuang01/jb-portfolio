@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "Jiangbin Huang Portfolio",
-  description: "Portfolio website of Jiangbin Huang",
+  description: "Selected data, modeling, and applied AI projects by Jiangbin Huang.",
 };
 
 export default function RootLayout({
