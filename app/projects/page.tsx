@@ -12,12 +12,12 @@ export default function ProjectsPage() {
             Regional Energy Data Lake
           </h2>
           <p className="text-gray-600 mt-2">
-            Hourly prices, generation, weather, and forecast vintages joined
-            across DE-LU, France, and Austria. The pipeline keeps raw source
-            snapshots separate from typed data and model-ready outputs.
+            I joined hourly prices, generation, weather, and archived forecast
+            runs across DE-LU, France, and Austria. The raw files stay separate
+            from the typed tables and model-ready panel.
           </p>
           <a className="inline-block mt-4 underline" href="https://github.com/jbinhuang01/regional-energy-data-lake">
-            Repository and analysis
+            Walkthrough and repository
           </a>
         </div>
 
