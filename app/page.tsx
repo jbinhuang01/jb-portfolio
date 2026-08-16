@@ -31,7 +31,7 @@ const projects: Project[] = [
       "An hourly energy dataset built from market prices, generation, weather, and archived forecast vintages across DE-LU, France, and Austria. Bronze keeps source files, Silver standardizes them, and Gold measures forecast error against price movement.",
     metrics: [["30", "forecast runs"], ["3", "market zones"], ["21,600", "Gold rows"]],
     image: "/assets/data-lake.png",
-    link: "https://github.com/jbinhuang01/regional-energy-data-lake",
+    link: "/projects/energy",
   },
   {
     category: "modeling",
@@ -108,7 +108,7 @@ export default function Home() {
                     {project.metrics.map(([value, label]) => <div key={label}><dt>{value}</dt><dd>{label}</dd></div>)}
                   </dl>
                   <a className="project-link" href={project.link}>
-                    {project.category === "modeling" ? "View full research walkthrough" : "View technical work on GitHub"}
+                    {project.category === "modeling" || project.category === "data" ? "View full project walkthrough" : "View technical work on GitHub"}
                   </a>
                 </div>
               </article>
