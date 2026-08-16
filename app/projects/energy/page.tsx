@@ -94,14 +94,14 @@ export default function EnergyProjectPage() {
 
       <section className="research-section">
         <p className="eyebrow">Research question</p>
-        <h2>Do forecast errors line up with market outcomes after recurring time patterns are removed?</h2>
+        <h2>Do forecast errors line up with market outcomes after the obvious time patterns are accounted for?</h2>
         <p>The project does not try to forecast prices with a black-box model. It first makes the data lineage explicit, then asks whether forecast error is associated with day-ahead price, price volatility, and negative-price probability. That distinction matters because the same realized market outcome is observed against multiple forecast vintages.</p>
         <div className="research-callout"><strong>Current scope:</strong> 30 archived forecast runs, 3 bidding zones, 588 common valid hours per zone, and 21,600 Gold rows. The current sample is one month, so the results are useful for demonstrating the design and its limitations, not for claiming a stable market law.</div>
       </section>
 
       <section className="research-section">
         <p className="eyebrow">End-to-end process</p>
-        <h2>From raw source files to a defensible panel</h2>
+        <h2>From raw source files to one panel I can rerun</h2>
         <ol className="research-process">
           {processSteps.map(([letter, title, description], index) => <li key={letter}><span className="process-index">{letter}</span><div><h3>{index + 1}. {title}</h3><p>{description}</p></div></li>)}
         </ol>
@@ -125,7 +125,7 @@ export default function EnergyProjectPage() {
 
       <section className="research-section">
         <p className="eyebrow">Model specification</p>
-        <h2>Fixed effects first, clustered uncertainty second</h2>
+        <h2>A simple model with uncertainty treated seriously</h2>
         <p>The main price model includes bidding-zone, UTC hour, and valid-date fixed effects. Continuous predictors are standardized within zone. Standard errors are two-way clustered by valid time and forecast run, with 30 forecast runs setting the smallest cluster count.</p>
         <ResultsTable headers={["Outcome", "Rows", "R²", "Forecast-run clusters", "Model type"]} rows={modelRows} />
         <p className="table-note">R² is descriptive fit, not out-of-sample forecasting accuracy. Repeated market outcomes across vintages are the reason the forecast-run dimension is part of the inference design.</p>
@@ -140,7 +140,7 @@ export default function EnergyProjectPage() {
 
       <section className="research-section research-final">
         <p className="eyebrow">Final takeaway</p>
-        <h2>The data lake is the research contribution, not just storage</h2>
+        <h2>The point is being able to trace the result back to the source</h2>
         <p>The useful part of this project is the connection between versioned ingestion and statistical interpretation. Bronze preserves what arrived, Silver makes the source differences inspectable, and Gold gives the model one reproducible panel. The current result is a clear next step rather than a finished claim: extend the vintage history, add more representative weather points, and test whether the zone-specific relationships survive across seasons.</p>
         <a className="button primary" href="https://github.com/jbinhuang01/regional-energy-data-lake">Read the code and reports on GitHub</a>
       </section>
