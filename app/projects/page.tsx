@@ -9,20 +9,25 @@ export default function ProjectsPage() {
 
         <div className="border rounded-xl p-6">
           <h2 className="text-2xl font-semibold">
-            Real-Time Crypto Risk Engine
+            Regional Energy Data Lake
           </h2>
           <p className="text-gray-600 mt-2">
-            Streaming risk analytics system using Kafka, Spark,
-            and LSTM volatility forecasting.
+            Hourly prices, generation, weather, and forecast vintages joined
+            across DE-LU, France, and Austria. The pipeline keeps raw source
+            snapshots separate from typed data and model-ready outputs.
           </p>
+          <a className="inline-block mt-4 underline" href="https://github.com/jbinhuang01/regional-energy-data-lake">
+            Repository and analysis
+          </a>
         </div>
 
         <div className="border rounded-xl p-6">
           <h2 className="text-2xl font-semibold">
-            Streaming Traffic Forecasting
+            LLM Response Quality Classification
           </h2>
           <p className="text-gray-600 mt-2">
-            Real-time sensor ingestion with time-series ML models.
+            A four-label review workflow for accuracy, completeness, reasoning
+            quality, and hallucination risk across 150+ responses.
           </p>
         </div>
 
