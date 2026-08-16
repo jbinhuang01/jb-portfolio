@@ -25,13 +25,13 @@ const projects: Project[] = [
   },
   {
     category: "data",
-    label: "Data engineering / analytics",
-    title: "Three-Layer Data Lake Pipeline",
+    label: "Energy data engineering / forecasting",
+    title: "Regional Energy Data Lake",
     description:
-      "Configuration-driven ingestion with raw snapshots, validation, rejected-record handling, curated customer metrics, and SQL publishing.",
-    metrics: [["3", "data layers"], ["98.4%", "valid demo rows"], ["3", "reason-coded rejects"]],
+      "An hourly energy dataset built from market prices, generation, weather, and archived forecast vintages across DE-LU, France, and Austria. Bronze keeps source files, Silver standardizes them, and Gold measures forecast error against price movement.",
+    metrics: [["30", "forecast runs"], ["3", "market zones"], ["21,600", "Gold rows"]],
     image: "/assets/data-lake.png",
-    link: "https://github.com/jbinhuang01/jb-portfolio/tree/portfolio-v2",
+    link: "https://github.com/jbinhuang01/regional-energy-data-lake",
   },
   {
     category: "modeling",
