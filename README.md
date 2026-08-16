@@ -16,7 +16,13 @@ A reproducible four-label evaluation workflow for accuracy, completeness, reason
 
 ### Three-Layer Data Lake Pipeline
 
-A configuration-driven raw-to-curated workflow with schema validation, rejected-record handling, reusable transformations, SQL publishing, and stakeholder-facing analytics outputs.
+An hourly European energy data lake that joins market prices, generation,
+weather, and archived forecast vintages across DE-LU, France, and Austria.
+The current Gold panel contains 30 forecast runs and 21,600 market-impact
+rows. The analysis uses fixed effects and two-way clustered standard errors to
+separate recurring time patterns from the forecast-error relationship.
+
+Research repository: [jbinhuang01/regional-energy-data-lake](https://github.com/jbinhuang01/regional-energy-data-lake)
 
 ## Experience represented
 
