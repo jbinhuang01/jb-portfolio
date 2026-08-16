@@ -18,7 +18,7 @@ const projects: Project[] = [
     label: "Applied AI / NLP evaluation",
     title: "LLM Response Quality Classification",
     description:
-      "A reproducible four-label classification workflow for evaluating accuracy, completeness, reasoning quality, and hallucination risk.",
+      "I reviewed 150+ responses by hand, assigned four quality labels, and compared simple baselines against the reviewed labels.",
     metrics: [["150+", "reviewed outputs"], ["1.00", "macro F1 demo"], ["2", "baseline families"]],
     image: "/assets/llm-quality.png",
     link: "https://github.com/jbinhuang01/jb-portfolio/tree/portfolio-v2",
@@ -28,7 +28,7 @@ const projects: Project[] = [
     label: "Energy data engineering / forecasting",
     title: "Regional Energy Data Lake",
     description:
-      "An hourly energy dataset built from market prices, generation, weather, and archived forecast vintages across DE-LU, France, and Austria. Bronze keeps source files, Silver standardizes them, and Gold measures forecast error against price movement.",
+      "I joined hourly prices, generation, weather, and archived forecast runs for DE-LU, France, and Austria. The raw files stay available, while the curated panel is used to compare forecast errors with price movement.",
     metrics: [["30", "forecast runs"], ["3", "market zones"], ["21,600", "Gold rows"]],
     image: "/assets/data-lake.png",
     link: "/projects/energy",
@@ -38,7 +38,7 @@ const projects: Project[] = [
     label: "Quantitative research / point-in-time validation",
     title: "Point-in-Time S&P 500 Return Modeling",
     description:
-      "A leakage-aware equity panel using historical index membership, liquidity controls, walk-forward model comparison, factor regimes, placebo tests, moving-block bootstrap, Reality Check, and locked holdout evaluation. The final analysis reports an exploratory signal rather than claiming persistent alpha.",
+      "I built a stock panel with historical index membership, walk-forward evaluation, transaction costs, placebo tests, and a locked holdout. The result is exploratory evidence, not a claim of persistent alpha.",
     metrics: [["704", "historical members"], ["8", "locked OOS quarters"], ["0.04", "locked OOS R²"]],
     image: "/assets/sp500-segments.png",
     link: "/projects/sp500",
@@ -89,7 +89,7 @@ export default function Home() {
 
         <section className="projects-section" id="projects">
           <div className="section-heading">
-            <div><p className="eyebrow">Selected work</p><h2>Production-oriented projects</h2></div>
+            <div><p className="eyebrow">Selected work</p><h2>Projects I can walk through</h2></div>
             <div className="filters" role="group" aria-label="Filter projects">
               {[['all', 'All'], ['ai', 'Applied AI'], ['data', 'Data Engineering'], ['modeling', 'Modeling']].map(([value, label]) => (
                 <button className={`filter ${filter === value ? "active" : ""}`} key={value} onClick={() => setFilter(value)} type="button">{label}</button>
@@ -108,7 +108,7 @@ export default function Home() {
                     {project.metrics.map(([value, label]) => <div key={label}><dt>{value}</dt><dd>{label}</dd></div>)}
                   </dl>
                   <a className="project-link" href={project.link}>
-                    {project.category === "modeling" || project.category === "data" ? "View full project walkthrough" : "View technical work on GitHub"}
+                    {project.category === "modeling" || project.category === "data" ? "Read the project walkthrough" : "See the technical work"}
                   </a>
                 </div>
               </article>
@@ -117,7 +117,7 @@ export default function Home() {
         </section>
 
         <section className="experience-section" id="experience">
-          <div className="section-heading"><div><p className="eyebrow">Experience</p><h2>From data contracts to model review</h2></div></div>
+          <div className="section-heading"><div><p className="eyebrow">Experience</p><h2>Work that involved data, models, and review</h2></div></div>
           <div className="experience-list">
             <article><div><h3>Co-Founder &amp; Data Scientist</h3><p>Early-Stage Data &amp; AI Startup</p></div><p>Built Python and SQL workflows, a three-layer data lake pattern, model-selection pipelines, RAG evaluation, and repeatable technical handoff assets.</p><time>2025 — Present</time></article>
             <article><div><h3>Data / AI Researcher</h3><p>Feelie</p></div><p>Standardized 500K+ conversation records and connected DistilBERT emotion classification, LLM response generation, and rubric-based output review.</p><time>2024 — 2025</time></article>
@@ -127,11 +127,11 @@ export default function Home() {
         </section>
 
         <section className="capabilities-section" id="skills">
-          <div className="section-heading"><div><p className="eyebrow">Capabilities</p><h2>Methods backed by working pipelines</h2></div></div>
+          <div className="section-heading"><div><p className="eyebrow">Capabilities</p><h2>What I use on actual projects</h2></div></div>
           <div className="capability-grid">
-            <article><h3>Statistics &amp; Machine Learning</h3><p>Model selection, feature engineering, cross-validation, hypothesis testing, regression, classification, clustering, and time-series forecasting.</p><p className="technology-line">XGBoost · Random Forest · Logistic Regression · PCA · ARIMA · LSTM</p></article>
-            <article><h3>Applied AI &amp; LLM Systems</h3><p>RAG workflows, response-quality classification, retrieval evaluation, prompt testing, embeddings, hallucination review, and model evaluation.</p><p className="technology-line">PyTorch · scikit-learn · TensorFlow · LangChain · OpenAI API</p></article>
-            <article><h3>Data Engineering &amp; Analytics</h3><p>ETL development, data validation, layered data lakes, schema design, SQL optimization, analytics datasets, and reporting automation.</p><p className="technology-line">Python · SQL · pandas · AWS · Tableau · Power BI</p></article>
+            <article><h3>Statistics &amp; Machine Learning</h3><p>I use fixed effects, regression, clustering, cross-validation, and time-series models when the question needs an interpretable comparison.</p><p className="technology-line">scikit-learn · statsmodels · XGBoost · ARIMA · LSTM</p></article>
+            <article><h3>LLM and response review</h3><p>I build small evaluation sets, write labels that a reviewer can apply, and check where a model is incomplete, ungrounded, or simply wrong.</p><p className="technology-line">PyTorch · scikit-learn · LangChain · OpenAI API</p></article>
+            <article><h3>Data pipelines and reporting</h3><p>I use Python and SQL to move raw files into tables that can be checked, rerun, and explained to someone who did not write the pipeline.</p><p className="technology-line">Python · SQL · pandas · Parquet · AWS · Tableau</p></article>
           </div>
         </section>
 
@@ -144,7 +144,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer id="contact"><div><p className="eyebrow">Contact</p><h2>Building reliable data products and applied AI workflows.</h2></div><div className="footer-links"><a href="mailto:jbinhuang01@gmail.com">jbinhuang01@gmail.com</a><a href="https://www.linkedin.com/in/jb-huang-9511141ba">LinkedIn</a><a href="https://github.com/jbinhuang01">GitHub</a></div></footer>
+      <footer id="contact"><div><p className="eyebrow">Contact</p><h2>If you want to talk through a data or modeling problem, send me a note.</h2></div><div className="footer-links"><a href="mailto:jbinhuang01@gmail.com">jbinhuang01@gmail.com</a><a href="https://www.linkedin.com/in/jb-huang-9511141ba">LinkedIn</a><a href="https://github.com/jbinhuang01">GitHub</a></div></footer>
     </>
   );
 }
