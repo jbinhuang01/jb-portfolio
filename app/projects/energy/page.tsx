@@ -111,7 +111,7 @@ export default function EnergyProjectPage() {
         <p className="eyebrow">Visual evidence</p>
         <h2>The zone split is part of the result</h2>
         <div className="research-figures">
-          <Figure src="/assets/data-lake.png" alt="Mean price and negative-price rate by renewable regime across three bidding zones" caption="High-renewable hours have lower mean prices in all three zones, but the baseline price level and negative-price rate differ across DE-LU, Austria, and France." />
+          <Figure src="/assets/energy/market-regimes-by-zone.png" alt="Mean price and negative-price rate by renewable regime across three bidding zones" caption="High-renewable hours have lower mean prices in all three zones, but the baseline price level and negative-price rate differ across DE-LU, Austria, and France." />
           <Figure src="/assets/energy/regime-interactions.png" alt="Forecast-error coefficients by renewable regime" caption="The interaction plot shows that the relationship between forecast-error variables and price is not identical across renewable regimes." />
         </div>
       </section>
