@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const processSteps = [
   ["A", "Static price data", "Use a static, reproducible price source so the experiment is not dependent on a live API or rate limits."],
   ["B", "Data cleaning and outlier detection", "Align dates, repair missing values, flag implausible price jumps, and preserve an audit trail."],
@@ -84,7 +86,7 @@ export default function SP500ProjectPage() {
   return (
     <main className="research-page">
       <style>{researchStyles}</style>
-      <a className="back-link" href="/#projects">← Back to selected work</a>
+      <Link className="back-link" href="/#projects">← Back to selected work</Link>
       <header className="research-hero">
         <p className="eyebrow">Quantitative research / point-in-time validation</p>
         <h1>Point-in-Time S&amp;P 500 Return Modeling</h1>

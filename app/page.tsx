@@ -18,10 +18,10 @@ const projects: Project[] = [
     label: "Applied AI / NLP evaluation",
     title: "LLM Response Quality Classification",
     description:
-      "I reviewed 150+ responses by hand, assigned four quality labels, and compared simple baselines against the reviewed labels.",
-    metrics: [["150+", "reviewed outputs"], ["1.00", "macro F1 demo"], ["2", "baseline families"]],
+      "I built a preference-classification pipeline around 135K public Arena votes, then tested grouped splits, soft labels, pairwise scoring, and a frozen temporal holdout.",
+    metrics: [["135K", "human votes"], ["0.285", "best dev macro F1"], ["27K", "locked test rows"]],
     image: "/assets/llm-quality.png",
-    link: "https://github.com/jbinhuang01/jb-portfolio/tree/portfolio-v2",
+    link: "/projects/llm",
   },
   {
     category: "data",

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Regional Energy Data Lake | Jiangbin Huang",
@@ -84,7 +85,7 @@ export default function EnergyProjectPage() {
   return (
     <main className="research-page">
       <style>{researchStyles}</style>
-      <a className="back-link" href="/#projects">← Back to selected work</a>
+      <Link className="back-link" href="/#projects">← Back to selected work</Link>
       <header className="research-hero">
         <p className="eyebrow">Energy data engineering / forecast impact</p>
         <h1>Regional Energy Data Lake</h1>

@@ -26,9 +26,13 @@ export default function ProjectsPage() {
             LLM Response Quality Classification
           </h2>
           <p className="text-gray-600 mt-2">
-            A four-label review workflow for accuracy, completeness, reasoning
-            quality, and hallucination risk across 150+ responses.
+            A human-preference study using 135K Arena votes. The project
+            compares hard labels, disagreement-aware soft labels, pairwise
+            rankers, and a pretrained encoder under grouped and temporal splits.
           </p>
+          <a className="inline-block mt-4 underline" href="/projects/llm">
+            Read the project walkthrough
+          </a>
         </div>
 
       </div>

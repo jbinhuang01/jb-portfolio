@@ -12,7 +12,11 @@ Research repository: [jbinhuang01/sp500-modeling](https://github.com/jbinhuang01
 
 ### LLM Response Quality Classification
 
-A reproducible four-label evaluation workflow for accuracy, completeness, reasoning quality, and hallucination risk across 150+ reviewed LLM outputs.
+A human-preference study using 135K public Arena votes. The project compares
+hard labels, disagreement-aware soft labels, pairwise scoring, and a
+development-scale pretrained encoder under grouped and temporal splits.
+
+Research repository: [jbinhuang01/llm_response](https://github.com/jbinhuang01/llm_response)
 
 ### Three-Layer Data Lake Pipeline
 
