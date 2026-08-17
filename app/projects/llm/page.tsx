@@ -16,11 +16,42 @@ const pipelineSteps = [
 ];
 
 const modelRows = [
-  ["Word TF-IDF", "0.2508", "Reference baseline"],
-  ["Character TF-IDF", "0.2488", "Close to word features"],
-  ["Class-balanced soft-label TF-IDF", "0.2850", "Best current development result"],
-  ["Pairwise TF-IDF ranker", "0.2674", "Tie recall is much higher"],
-  ["Pairwise BERT, 5K MPS", "0.2398", "Exploratory encoder run"],
+  ["Word TF-IDF", "0.3609", "0.2508", "0.1005", "[0.2323, 0.2693]", "3 seeds × 3-fold"],
+  ["Character TF-IDF", "0.3522", "0.2488", "—", "[0.2304, 0.2672]", "3 seeds × 3-fold"],
+  ["Class-balanced soft-label TF-IDF", "0.3227", "0.2850", "0.3385", "[0.2833, 0.2867]", "3 seeds × 3-fold"],
+  ["Pairwise TF-IDF ranker", "0.2882", "0.2674", "0.7016", "[0.2481, 0.2866]", "3 seeds × 3-fold"],
+  ["Pairwise BERT, 2K MPS", "0.2860", "0.2416", "0.6546", "—", "2 epochs; 3-fold"],
+  ["Pairwise BERT, 5K MPS", "0.2604", "0.2398", "0.6989", "—", "2 epochs; 3-fold"],
+  ["Formal locked word TF-IDF", "0.3463", "0.2505", "—", "single test value", "27,127 frozen rows"],
+];
+
+const protocolRows = [
+  ["Arena export", "135,634 votes", "53 models; 126 languages"],
+  ["Development pool", "108,507 rows", "Grouped by normalized question"],
+  ["Frozen temporal test", "27,127 rows", "Held out before formal baseline"],
+  ["Primary metric", "Macro-F1", "Accuracy and tie recall reported alongside"],
+];
+
+const softLabelRows = [
+  ["Hard-label TF-IDF", "0.3662", "0.2595", "0.1005", "—"],
+  ["Class-balanced soft-label TF-IDF", "0.3227", "0.2850", "0.3385", "0.0179"],
+];
+
+const pairwiseRows = [
+  ["Pairwise TF-IDF", "0.2882", "0.2674", "0.7016", "3 seeds"],
+  ["Pairwise BERT, 2K MPS", "0.2860", "0.2416", "0.6546", "2 epochs"],
+  ["Pairwise BERT, 5K MPS", "0.2604", "0.2398", "0.6989", "2 epochs"],
+];
+
+const sliceRows = [
+  ["Russian", "0.402", "184"],
+  ["Polish", "0.391", "297"],
+  ["Hard prompt", "0.372", "1,446"],
+  ["Code", "0.367", "849"],
+  ["English", "0.358", "1,574"],
+  ["Math", "0.348", "264"],
+  ["No domain knowledge", "0.317", "526"],
+  ["Creative writing", "0.288", "264"],
 ];
 
 function ResultsTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
@@ -50,7 +81,9 @@ const researchStyles = String.raw`
 .research-process li{display:grid;grid-template-columns:2.5rem 1fr;gap:.8rem;border-bottom:1px solid #cbd4dd;padding:1.2rem 0}
 .process-index{display:grid;width:2.2rem;height:2.2rem;place-items:center;border-radius:50%;background:#234d6f;color:#fff;font-size:.8rem;font-weight:850}
 .research-process p{margin:0;color:#5c6672;font-size:.86rem;line-height:1.5}
+.research-figures{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:2rem}
 .research-figure{max-width:900px;margin:2rem 0 0;border:1px solid #cbd4dd;background:#fff}
+.research-figures .research-figure{max-width:none;margin:0}
 .research-figure img{display:block;width:100%}
 .research-figure figcaption{padding:.9rem 1rem;color:#5c6672;font-size:.78rem;line-height:1.5}
 .research-table-wrap{overflow-x:auto;margin:1.5rem 0}
@@ -60,7 +93,7 @@ const researchStyles = String.raw`
 .research-table td:not(:first-child){font-variant-numeric:tabular-nums}
 .research-callout{max-width:920px;margin:1.5rem 0;padding:1.2rem 1.3rem;border-left:4px solid #167c70;background:#edf6f4;color:#3f5960;font-size:.95rem;line-height:1.65}
 .research-final{border-bottom:0}
-@media(max-width:760px){.research-page{width:min(100% - 2rem,1180px)}.research-process{grid-template-columns:1fr}.research-section{padding:3rem 0}.research-links{align-items:flex-start;flex-direction:column}}
+@media(max-width:760px){.research-page{width:min(100% - 2rem,1180px)}.research-process,.research-figures{grid-template-columns:1fr}.research-section{padding:3rem 0}.research-links{align-items:flex-start;flex-direction:column}}
 `;
 
 export default function LLMProjectPage() {
@@ -80,6 +113,7 @@ export default function LLMProjectPage() {
         <h2>Can a text model tell the difference between a clear winner and a genuinely ambiguous comparison?</h2>
         <p>The main data source is the public Arena preference export. Each record contains a prompt, two responses, and a human vote. Instead of collapsing every vote into a binary winner, the pipeline keeps model A, model B, tie, and tie (bothbad) as separate outcomes.</p>
         <div className="research-callout"><strong>Current scale:</strong> 135,634 votes, 53 models, 126 languages, and a 27,127-row temporal test held out from later model selection.</div>
+        <ResultsTable headers={["Dataset / protocol", "Size", "Notes"]} rows={protocolRows} />
       </section>
 
       <section className="research-section">
@@ -94,14 +128,19 @@ export default function LLMProjectPage() {
         <p className="eyebrow">Model comparison</p>
         <h2>More complexity did not automatically solve the hard part</h2>
         <p>The development metric is Macro-F1 because the two tie classes are smaller than the two winner classes. Tie recall is reported separately because a system that never predicts ties can still look acceptable on accuracy.</p>
-        <ResultsTable headers={["Model", "Mean Macro-F1", "Reading"]} rows={modelRows} />
-        <figure className="research-figure"><img src="/assets/llm-quality.png" alt="LLM response quality experiment visualization" /><figcaption>The portfolio image is a compact view of the earlier quality-labeling work. The current research repository contains the larger preference experiments, split manifests, reports, and out-of-fold predictions.</figcaption></figure>
+        <ResultsTable headers={["Model", "Accuracy", "Macro-F1", "Tie recall", "Macro-F1 95% CI", "Protocol"]} rows={modelRows} />
+        <div className="research-figures">
+          <figure className="research-figure"><img src="/assets/llm/model-comparison.png" alt="Macro-F1 and tie recall across LLM preference models" /><figcaption>Development and formal baseline values are shown together, with the protocol kept in the table above.</figcaption></figure>
+          <figure className="research-figure"><img src="/assets/llm/locked-baseline.png" alt="Development selection and frozen baseline Macro-F1" /><figcaption>The locked comparison is a reference, not a head-to-head model selection result.</figcaption></figure>
+        </div>
       </section>
 
       <section className="research-section">
         <p className="eyebrow">What changed with soft labels</p>
         <h2>The best current model trades some winner accuracy for better disagreement coverage</h2>
         <p>The class-balanced soft-label TF-IDF model reached mean Macro-F1 0.2850 and mean tie recall 0.3385 across three seeds. Its accuracy was lower than the hard-label baseline. That is not a universal improvement; it is a deliberate choice to make ambiguous judgments visible.</p>
+        <ResultsTable headers={["Training target", "Accuracy", "Macro-F1", "Tie recall", "ECE"]} rows={softLabelRows} />
+        <figure className="research-figure"><img src="/assets/llm/soft-label-tradeoff.png" alt="Hard-label and soft-label metrics across three seeds" /><figcaption>Soft-label training lowers accuracy while improving Macro-F1 and tie recall in the development protocol.</figcaption></figure>
         <p>The pairwise TF-IDF ranker pushed tie recall to 0.7016, but its Macro-F1 was 0.2674. It shows that the score-difference structure is useful, while the underlying response-quality scorer still needs work.</p>
       </section>
 
@@ -109,6 +148,22 @@ export default function LLMProjectPage() {
         <p className="eyebrow">Pretrained encoder</p>
         <h2>The encoder is currently an exploratory result</h2>
         <p>The shared BERT pairwise scorer was run locally with MPS on 2K and 5K rows. The 5K run reached Macro-F1 0.2398 and tie recall 0.6989. It is not selected as the final model. The next fair comparison would fix the seeds, epochs, token budget, and development folds before any new locked evaluation.</p>
+        <ResultsTable headers={["Pairwise scorer", "Accuracy", "Macro-F1", "Tie recall", "Training"]} rows={pairwiseRows} />
+      </section>
+
+      <section className="research-section">
+        <p className="eyebrow">Error and slice analysis</p>
+        <h2>The weak slice is creative writing, not the largest language group</h2>
+        <p>These are descriptive word-TF-IDF out-of-fold slices. The sample size is shown because a higher slice accuracy is not automatically more reliable when the slice is small.</p>
+        <ResultsTable headers={["Slice", "Accuracy", "Rows"]} rows={sliceRows} />
+        <figure className="research-figure"><img src="/assets/llm/slice-accuracy.png" alt="Accuracy across selected LLM response quality slices" /><figcaption>Creative-writing prompts are the weakest selected slice in this run. These differences are not causal estimates.</figcaption></figure>
+      </section>
+
+      <section className="research-section">
+        <p className="eyebrow">Formal locked evaluation</p>
+        <h2>The locked result is reported once and then left alone</h2>
+        <p>The word-TF-IDF baseline was trained on 5,000 sampled train-pool rows and evaluated on all 27,127 frozen temporal rows. This table is a final reference point; it is not used to tune the newer soft-label or encoder models.</p>
+        <ResultsTable headers={["Metric", "Value", "Evaluation set"]} rows={[["Accuracy", "0.3463", "27,127 locked rows"], ["Macro-F1", "0.2505", "27,127 locked rows"], ["Weighted-F1", "0.3160", "27,127 locked rows"]]} />
       </section>
 
       <section className="research-section research-final">
