@@ -20,7 +20,7 @@ const projects: Project[] = [
     description:
       "I built a preference-classification pipeline around 135K public Arena votes, then tested grouped splits, soft labels, pairwise scoring, and a frozen temporal holdout.",
     metrics: [["135K", "human votes"], ["0.285", "best dev macro F1"], ["27K", "locked test rows"]],
-    image: "/assets/llm-quality.png",
+    image: "/assets/llm/model-comparison.png",
     link: "/projects/llm",
   },
   {
