@@ -30,7 +30,7 @@ const projects: Project[] = [
     description:
       "I joined hourly prices, generation, weather, and archived forecast runs for DE-LU, France, and Austria. The raw files stay available, while the curated panel is used to compare forecast errors with price movement.",
     metrics: [["30", "forecast runs"], ["3", "market zones"], ["21,600", "Gold rows"]],
-    image: "/assets/data-lake.png",
+    image: "/assets/energy/market-regimes-by-zone.png",
     link: "/projects/energy",
   },
   {
