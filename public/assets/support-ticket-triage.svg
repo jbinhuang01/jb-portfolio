@@ -1,0 +1,40 @@
+<svg width="1200" height="732" viewBox="0 0 1200 732" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="732" fill="#F3F6F7"/>
+  <rect x="68" y="70" width="1064" height="592" rx="10" fill="white" stroke="#CBD4DD" stroke-width="2"/>
+  <path d="M68 151H1132" stroke="#CBD4DD" stroke-width="2"/>
+  <circle cx="103" cy="111" r="8" fill="#D26A4A"/>
+  <circle cx="132" cy="111" r="8" fill="#D9A441"/>
+  <circle cx="161" cy="111" r="8" fill="#4D9989"/>
+  <text x="205" y="119" fill="#1B2B38" font-family="Arial, sans-serif" font-size="22" font-weight="700">Support Ticket Triage</text>
+  <text x="110" y="204" fill="#5C6672" font-family="Arial, sans-serif" font-size="18" letter-spacing="2">MESSAGE ROUTING</text>
+  <rect x="110" y="232" width="300" height="125" rx="8" fill="#EDF6F4"/>
+  <text x="138" y="272" fill="#1B2B38" font-family="Arial, sans-serif" font-size="20" font-weight="700">Customer message</text>
+  <text x="138" y="310" fill="#5C6672" font-family="Arial, sans-serif" font-size="17">“I need to cancel</text>
+  <text x="138" y="337" fill="#5C6672" font-family="Arial, sans-serif" font-size="17">my order.”</text>
+  <path d="M430 295H502" stroke="#4D9989" stroke-width="3"/>
+  <path d="M488 280L507 295L488 310" stroke="#4D9989" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="527" y="232" width="300" height="125" rx="8" fill="#F6F1E8"/>
+  <text x="555" y="272" fill="#1B2B38" font-family="Arial, sans-serif" font-size="20" font-weight="700">Model + rules</text>
+  <text x="555" y="310" fill="#5C6672" font-family="Arial, sans-serif" font-size="17">word + character TF-IDF</text>
+  <text x="555" y="337" fill="#5C6672" font-family="Arial, sans-serif" font-size="17">confidence threshold: 0.60</text>
+  <path d="M847 295H919" stroke="#4D9989" stroke-width="3"/>
+  <path d="M905 280L924 295L905 310" stroke="#4D9989" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="944" y="232" width="145" height="125" rx="8" fill="#1B2B38"/>
+  <text x="968" y="272" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="700">route</text>
+  <text x="968" y="310" fill="#B9E2D9" font-family="Arial, sans-serif" font-size="18">refund</text>
+  <text x="968" y="337" fill="#D9E3E6" font-family="Arial, sans-serif" font-size="15">review queue</text>
+  <text x="110" y="431" fill="#5C6672" font-family="Arial, sans-serif" font-size="18" letter-spacing="2">LOCAL SERVICE LOOP</text>
+  <rect x="110" y="466" width="250" height="92" rx="8" fill="#F3F6F7" stroke="#CBD4DD" stroke-width="2"/>
+  <text x="138" y="506" fill="#1B2B38" font-family="Arial, sans-serif" font-size="19" font-weight="700">Streamlit</text>
+  <text x="138" y="535" fill="#5C6672" font-family="Arial, sans-serif" font-size="16">prediction + review UI</text>
+  <path d="M380 512H472" stroke="#A6B4BD" stroke-width="3"/>
+  <path d="M458 497L477 512L458 527" stroke="#A6B4BD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="492" y="466" width="250" height="92" rx="8" fill="#F3F6F7" stroke="#CBD4DD" stroke-width="2"/>
+  <text x="520" y="506" fill="#1B2B38" font-family="Arial, sans-serif" font-size="19" font-weight="700">FastAPI</text>
+  <text x="520" y="535" fill="#5C6672" font-family="Arial, sans-serif" font-size="16">prediction + metrics API</text>
+  <path d="M762 512H854" stroke="#A6B4BD" stroke-width="3"/>
+  <path d="M840 497L859 512L840 527" stroke="#A6B4BD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="874" y="466" width="215" height="92" rx="8" fill="#F3F6F7" stroke="#CBD4DD" stroke-width="2"/>
+  <text x="902" y="506" fill="#1B2B38" font-family="Arial, sans-serif" font-size="19" font-weight="700">SQLite</text>
+  <text x="902" y="535" fill="#5C6672" font-family="Arial, sans-serif" font-size="16">review queue + metrics</text>
+</svg>

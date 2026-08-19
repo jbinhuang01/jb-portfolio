@@ -15,6 +15,16 @@ type Project = {
 const projects: Project[] = [
   {
     category: "ai",
+    label: "Applied AI / support operations",
+    title: "Support Ticket Triage",
+    description:
+      "I built a local ticket-routing service that combines a word-and-character text model, a small rule layer, a review queue, and a Streamlit interface. Low-confidence predictions stay visible to a person instead of disappearing behind an accuracy number.",
+    metrics: [["31K", "training tickets"], ["0.978", "held-out macro F1"], ["0.60", "review threshold"]],
+    image: "/assets/support-ticket-triage.svg",
+    link: "/projects/support-ticket",
+  },
+  {
+    category: "ai",
     label: "Applied AI / NLP evaluation",
     title: "LLM Response Quality Classification",
     description:
