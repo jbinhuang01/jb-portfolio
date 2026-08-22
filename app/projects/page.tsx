@@ -37,13 +37,12 @@ export default function ProjectsPage() {
 
         <div className="border rounded-xl p-6">
           <h2 className="text-2xl font-semibold">
-            Support Ticket Triage
+            Support ticket routing
           </h2>
           <p className="text-gray-600 mt-2">
             A local FastAPI and Streamlit service for routing support messages.
-            It records low-confidence predictions in a review queue and keeps
-            the model, API, dashboard, and SQLite state in one reproducible
-            Docker Compose workflow.
+            It saves each prediction and leaves uncertain cases in a review
+            queue. The whole setup runs with Docker Compose and SQLite.
           </p>
           <a className="inline-block mt-4 underline" href="/projects/support-ticket">
             Read the project walkthrough

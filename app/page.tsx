@@ -15,11 +15,11 @@ type Project = {
 const projects: Project[] = [
   {
     category: "ai",
-    label: "Applied AI / support operations",
-    title: "Support Ticket Triage",
+    label: "Customer support tooling",
+    title: "Support ticket routing",
     description:
-      "I built a local ticket-routing service that combines a word-and-character text model, a small rule layer, a review queue, and a Streamlit interface. Low-confidence predictions stay visible to a person instead of disappearing behind an accuracy number.",
-    metrics: [["31K", "training tickets"], ["0.978", "held-out macro F1"], ["0.60", "review threshold"]],
+      "I wanted a small project that went beyond a notebook: a message goes through an API, the prediction is saved, and uncertain cases are left for a reviewer. It runs locally with FastAPI, Streamlit, and SQLite.",
+    metrics: [["31K", "training rows"], ["8.5K", "test rows"], ["0.60", "review cutoff"]],
     image: "/assets/support-ticket-triage.svg",
     link: "/projects/support-ticket",
   },
@@ -118,7 +118,7 @@ export default function Home() {
                     {project.metrics.map(([value, label]) => <div key={label}><dt>{value}</dt><dd>{label}</dd></div>)}
                   </dl>
                   <a className="project-link" href={project.link}>
-                    {project.category === "modeling" || project.category === "data" ? "Read the project walkthrough" : "See the technical work"}
+                    {project.category === "modeling" || project.category === "data" ? "Read the project walkthrough" : "Read the project notes"}
                   </a>
                 </div>
               </article>

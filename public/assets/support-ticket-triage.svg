@@ -1,40 +1,47 @@
 <svg width="1200" height="732" viewBox="0 0 1200 732" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="732" fill="#F3F6F7"/>
-  <rect x="68" y="70" width="1064" height="592" rx="10" fill="white" stroke="#CBD4DD" stroke-width="2"/>
-  <path d="M68 151H1132" stroke="#CBD4DD" stroke-width="2"/>
-  <circle cx="103" cy="111" r="8" fill="#D26A4A"/>
-  <circle cx="132" cy="111" r="8" fill="#D9A441"/>
-  <circle cx="161" cy="111" r="8" fill="#4D9989"/>
-  <text x="205" y="119" fill="#1B2B38" font-family="Arial, sans-serif" font-size="22" font-weight="700">Support Ticket Triage</text>
-  <text x="110" y="204" fill="#5C6672" font-family="Arial, sans-serif" font-size="18" letter-spacing="2">MESSAGE ROUTING</text>
-  <rect x="110" y="232" width="300" height="125" rx="8" fill="#EDF6F4"/>
-  <text x="138" y="272" fill="#1B2B38" font-family="Arial, sans-serif" font-size="20" font-weight="700">Customer message</text>
-  <text x="138" y="310" fill="#5C6672" font-family="Arial, sans-serif" font-size="17">“I need to cancel</text>
-  <text x="138" y="337" fill="#5C6672" font-family="Arial, sans-serif" font-size="17">my order.”</text>
-  <path d="M430 295H502" stroke="#4D9989" stroke-width="3"/>
-  <path d="M488 280L507 295L488 310" stroke="#4D9989" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="527" y="232" width="300" height="125" rx="8" fill="#F6F1E8"/>
-  <text x="555" y="272" fill="#1B2B38" font-family="Arial, sans-serif" font-size="20" font-weight="700">Model + rules</text>
-  <text x="555" y="310" fill="#5C6672" font-family="Arial, sans-serif" font-size="17">word + character TF-IDF</text>
-  <text x="555" y="337" fill="#5C6672" font-family="Arial, sans-serif" font-size="17">confidence threshold: 0.60</text>
-  <path d="M847 295H919" stroke="#4D9989" stroke-width="3"/>
-  <path d="M905 280L924 295L905 310" stroke="#4D9989" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="944" y="232" width="145" height="125" rx="8" fill="#1B2B38"/>
-  <text x="968" y="272" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="700">route</text>
-  <text x="968" y="310" fill="#B9E2D9" font-family="Arial, sans-serif" font-size="18">refund</text>
-  <text x="968" y="337" fill="#D9E3E6" font-family="Arial, sans-serif" font-size="15">review queue</text>
-  <text x="110" y="431" fill="#5C6672" font-family="Arial, sans-serif" font-size="18" letter-spacing="2">LOCAL SERVICE LOOP</text>
-  <rect x="110" y="466" width="250" height="92" rx="8" fill="#F3F6F7" stroke="#CBD4DD" stroke-width="2"/>
-  <text x="138" y="506" fill="#1B2B38" font-family="Arial, sans-serif" font-size="19" font-weight="700">Streamlit</text>
-  <text x="138" y="535" fill="#5C6672" font-family="Arial, sans-serif" font-size="16">prediction + review UI</text>
-  <path d="M380 512H472" stroke="#A6B4BD" stroke-width="3"/>
-  <path d="M458 497L477 512L458 527" stroke="#A6B4BD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="492" y="466" width="250" height="92" rx="8" fill="#F3F6F7" stroke="#CBD4DD" stroke-width="2"/>
-  <text x="520" y="506" fill="#1B2B38" font-family="Arial, sans-serif" font-size="19" font-weight="700">FastAPI</text>
-  <text x="520" y="535" fill="#5C6672" font-family="Arial, sans-serif" font-size="16">prediction + metrics API</text>
-  <path d="M762 512H854" stroke="#A6B4BD" stroke-width="3"/>
-  <path d="M840 497L859 512L840 527" stroke="#A6B4BD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="874" y="466" width="215" height="92" rx="8" fill="#F3F6F7" stroke="#CBD4DD" stroke-width="2"/>
-  <text x="902" y="506" fill="#1B2B38" font-family="Arial, sans-serif" font-size="19" font-weight="700">SQLite</text>
-  <text x="902" y="535" fill="#5C6672" font-family="Arial, sans-serif" font-size="16">review queue + metrics</text>
+  <rect width="1200" height="732" fill="#E9EDF0"/>
+  <rect x="58" y="46" width="1084" height="640" rx="8" fill="#FFFFFF" stroke="#B9C4CC" stroke-width="2"/>
+  <path d="M58 104H1142" stroke="#D4DCE1" stroke-width="2"/>
+  <circle cx="87" cy="75" r="7" fill="#D26A4A"/>
+  <circle cx="111" cy="75" r="7" fill="#D9A441"/>
+  <circle cx="135" cy="75" r="7" fill="#4D9989"/>
+  <text x="174" y="82" fill="#23333F" font-family="Arial, sans-serif" font-size="20" font-weight="700">support-ticket-triage / local</text>
+  <rect x="82" y="130" width="208" height="520" fill="#F4F6F7"/>
+  <text x="108" y="174" fill="#23333F" font-family="Arial, sans-serif" font-size="20" font-weight="700">Ticket review</text>
+  <text x="108" y="220" fill="#4D9989" font-family="Arial, sans-serif" font-size="16" font-weight="700">New prediction</text>
+  <text x="108" y="258" fill="#677681" font-family="Arial, sans-serif" font-size="16">Review queue</text>
+  <text x="108" y="296" fill="#677681" font-family="Arial, sans-serif" font-size="16">Metrics</text>
+  <path d="M108 337H264" stroke="#D4DCE1" stroke-width="2"/>
+  <text x="108" y="379" fill="#677681" font-family="Arial, sans-serif" font-size="14">API</text>
+  <text x="108" y="405" fill="#23333F" font-family="Arial, sans-serif" font-size="15">127.0.0.1:8000</text>
+  <text x="108" y="456" fill="#677681" font-family="Arial, sans-serif" font-size="14">Database</text>
+  <text x="108" y="482" fill="#23333F" font-family="Arial, sans-serif" font-size="15">SQLite</text>
+  <text x="108" y="548" fill="#677681" font-family="Arial, sans-serif" font-size="14">Model</text>
+  <text x="108" y="574" fill="#23333F" font-family="Arial, sans-serif" font-size="15">word + char tf-idf</text>
+  <text x="330" y="171" fill="#23333F" font-family="Arial, sans-serif" font-size="27" font-weight="700">Try a prediction</text>
+  <text x="330" y="208" fill="#677681" font-family="Arial, sans-serif" font-size="16">Customer message</text>
+  <rect x="330" y="228" width="468" height="112" rx="6" fill="#FAFBFB" stroke="#B9C4CC" stroke-width="2"/>
+  <text x="354" y="270" fill="#23333F" font-family="Arial, sans-serif" font-size="18">I need to cancel my order</text>
+  <text x="354" y="309" fill="#9AA6AD" font-family="Arial, sans-serif" font-size="14">max 5,000 characters</text>
+  <rect x="330" y="362" width="140" height="45" rx="5" fill="#23333F"/>
+  <text x="366" y="391" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="17" font-weight="700">Predict</text>
+  <rect x="330" y="452" width="468" height="140" rx="6" fill="#F4F8F7" stroke="#9BC8BE" stroke-width="2"/>
+  <text x="354" y="490" fill="#677681" font-family="Arial, sans-serif" font-size="14">PREDICTED ROUTE</text>
+  <text x="354" y="530" fill="#23333F" font-family="Arial, sans-serif" font-size="25" font-weight="700">refund</text>
+  <text x="354" y="564" fill="#677681" font-family="Arial, sans-serif" font-size="15">confidence 0.5124 · review pending</text>
+  <rect x="828" y="130" width="280" height="520" fill="#FFFFFF"/>
+  <text x="854" y="174" fill="#23333F" font-family="Arial, sans-serif" font-size="20" font-weight="700">Recent reviews</text>
+  <text x="854" y="207" fill="#677681" font-family="Arial, sans-serif" font-size="14">3 pending</text>
+  <rect x="854" y="235" width="228" height="102" rx="6" fill="#FFF8EC" stroke="#E5C78A" stroke-width="2"/>
+  <text x="874" y="267" fill="#23333F" font-family="Arial, sans-serif" font-size="15" font-weight="700">cancel my order</text>
+  <text x="874" y="294" fill="#677681" font-family="Arial, sans-serif" font-size="14">predicted: refund</text>
+  <text x="874" y="318" fill="#A56E22" font-family="Arial, sans-serif" font-size="13">needs a label</text>
+  <rect x="854" y="355" width="228" height="102" rx="6" fill="#F4F6F7" stroke="#D4DCE1" stroke-width="2"/>
+  <text x="874" y="387" fill="#23333F" font-family="Arial, sans-serif" font-size="15" font-weight="700">where is my package</text>
+  <text x="874" y="414" fill="#677681" font-family="Arial, sans-serif" font-size="14">predicted: delivery</text>
+  <text x="874" y="438" fill="#677681" font-family="Arial, sans-serif" font-size="13">0.78 confidence</text>
+  <rect x="854" y="475" width="228" height="102" rx="6" fill="#F4F6F7" stroke="#D4DCE1" stroke-width="2"/>
+  <text x="874" y="507" fill="#23333F" font-family="Arial, sans-serif" font-size="15" font-weight="700">card was charged twice</text>
+  <text x="874" y="534" fill="#677681" font-family="Arial, sans-serif" font-size="14">predicted: payment</text>
+  <text x="874" y="558" fill="#677681" font-family="Arial, sans-serif" font-size="13">0.64 confidence</text>
 </svg>
